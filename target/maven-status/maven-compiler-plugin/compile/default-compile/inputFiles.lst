@@ -1,0 +1,9 @@
+/workspaces/mobelite/dapr/mobe/docker-k8s-back/src/main/java/com/example/restservice/heroes/repository/HeroRepository.java
+/workspaces/mobelite/dapr/mobe/docker-k8s-back/src/main/java/com/example/restservice/heroes/model/Hero.java
+/workspaces/mobelite/dapr/mobe/docker-k8s-back/src/main/java/com/example/restservice/heroes/model/HeroEntity.java
+/workspaces/mobelite/dapr/mobe/docker-k8s-back/src/main/java/com/example/restservice/greetings/Greeting.java
+/workspaces/mobelite/dapr/mobe/docker-k8s-back/src/main/java/com/example/restservice/heroes/controller/HeroesController.java
+/workspaces/mobelite/dapr/mobe/docker-k8s-back/src/main/java/com/example/restservice/RestServiceApplication.java
+/workspaces/mobelite/dapr/mobe/docker-k8s-back/src/main/java/com/example/restservice/heroes/controller/HeroesControllerV2.java
+/workspaces/mobelite/dapr/mobe/docker-k8s-back/src/main/java/com/example/restservice/greetings/GreetingController.java
+/workspaces/mobelite/dapr/mobe/docker-k8s-back/src/main/java/com/example/restservice/heroes/mapper/HeroMapper.java

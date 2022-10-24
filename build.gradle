@@ -23,9 +23,18 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.mapstruct:mapstruct:1.5.2.Final'
+	implementation 'org.mapstruct:mapstruct:1.5.3.Final'
 
-	annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.2.Final'
+	implementation 'io.dapr:dapr-sdk:1.6.0'
+    implementation 'io.dapr:dapr-sdk-actors:1.6.0'
+	implementation 'io.dapr:dapr-sdk-springboot:1.6.0'
+	implementation 'com.squareup.okhttp3:okhttp:4.9.0'
+
+	implementation 'io.grpc:grpc-netty-shaded:1.50.2'
+	implementation 'com.google.guava:guava:31.1-jre'
+	implementation 'commons-io:commons-io:2.11.0'
+
+	annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.3.Final'
 
 	runtimeOnly 'com.h2database:h2'
 	runtimeOnly 'org.postgresql:postgresql'

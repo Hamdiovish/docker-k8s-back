@@ -12,7 +12,7 @@ spring:
     driver-class-name: org.postgresql.Driver
     username: postgres
     password: postgres
-    url: jdbc:postgresql://${DB_SERVER:localhost}:5432/docker-k8s-db
+    url: jdbc:postgresql://${DB_SERVER}:5432/docker-k8s-db
     platform: postgresql
   jpa:
     show-sql: true
