@@ -16,4 +16,9 @@ public class SubscriberController {
         return Mono.fromRunnable(() ->
                 log.info("Received Message: " + new String(body)));
     }
+    @PostMapping(path = "/sample-pubsub")
+    public Mono<String> getPubSubCheckout(@RequestBody(required = false) byte[] body) {
+        return Mono.fromRunnable(() ->
+                log.info("Received PubSub Message: " + new String(body)));
+    }
 }
