@@ -32,6 +32,7 @@ public class SubscriberController {
     }
     @PostMapping(path = "/sample-pubsub")
     public ResponseEntity<Void> getPubSubCheckout(@RequestBody(required = false) byte[] body) {
+        logger.info("Received Message: " + new String(body));
         HeroEntity newHero = new HeroEntity(new String(body));
         if (newHero != null && !newHero.getName().isEmpty()) {
             logger.info("Saving " + newHero.toString());
