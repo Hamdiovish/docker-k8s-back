@@ -1,15 +1,14 @@
-package com.example.restservice.dapr;
+package com.example.restservice.dapr.controller;
 
-import com.example.restservice.heroes.controller.HeroesControllerV2;
+import com.example.restservice.dapr.dto.MessageDTO;
 import com.example.restservice.heroes.mapper.HeroMapper;
-import com.example.restservice.heroes.model.Hero;
 import com.example.restservice.heroes.model.HeroEntity;
 import com.example.restservice.heroes.repository.HeroRepository;
+import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;;
 import org.slf4j.Logger;
@@ -32,12 +31,17 @@ public class SubscriberController {
     }
     @PostMapping(path = "/sample-pubsub")
     public ResponseEntity<Void> getPubSubCheckout(@RequestBody(required = false) byte[] body) {
-        logger.info("Received Message: " + new String(body));
-        HeroEntity newHero = new HeroEntity(new String(body));
+        String input = new String(body);
+        logger.info("Received Message: " + input);
+        Gson g = new Gson();
+        MessageDTO msg = g.fromJson(input, MessageDTO.class);
+        HeroEntity newHero = new HeroEntity(msg.getData());
         if (newHero != null && !newHero.getName().isEmpty()) {
             logger.info("Saving " + newHero.toString());
-            HeroEntity savedHero = heroRepository.save(new HeroEntity(newHero.getName()));
+            HeroEntity savedHero = heroRepository.save(newHero);
             return ResponseEntity.ok().build();
+        }else{
+            logger.info("New hero is ignored: " + newHero.getName());
         }
         return ResponseEntity.badRequest().build();
     }
